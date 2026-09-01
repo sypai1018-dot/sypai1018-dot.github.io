@@ -1,47 +1,17 @@
-/* ==========================================
-   Academic Homepage v1.0
-   SY Pai Research
-========================================== */
+/*==========================================================
+    SY Pai Research Homepage
+    Version 1.0
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+    Author : SY Pai
+    Last Update : 2026
 
-html{
+==========================================================*/
 
-    scroll-behavior:smooth;
 
-}
 
-body{
-
-    font-family:
-    "Segoe UI",
-    "Helvetica Neue",
-    Arial,
-    sans-serif;
-
-    background:#F8FAFC;
-
-    color:#1E293B;
-
-    line-height:1.8;
-
-}
-
-/* ========================================== */
-
-.container{
-
-    width:90%;
-
-    max-width:1200px;
-
-    margin:auto;
-
-}
+/*==========================================================
+    1. CSS Variables
+==========================================================*/
 
 :root{
 
@@ -53,7 +23,7 @@ body{
 
     --background:#F8FAFC;
 
-    --card:#FFFFFF;
+    --surface:#FFFFFF;
 
     --text:#1E293B;
 
@@ -61,23 +31,173 @@ body{
 
     --border:#E2E8F0;
 
+    --light:#F1F5F9;
+
 }
 
-/* ========================================== */
-/* Navigation */
-/* ========================================== */
+
+
+/*==========================================================
+    2. Reset
+==========================================================*/
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:
+        "Inter",
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:var(--background);
+
+    color:var(--text);
+
+    line-height:1.8;
+
+    font-size:16px;
+
+}
+
+
+
+/*==========================================================
+    3. Typography
+==========================================================*/
+
+h1{
+
+    font-size:60px;
+
+    font-weight:700;
+
+    color:var(--primary);
+
+}
+
+h2{
+
+    font-size:42px;
+
+    font-weight:700;
+
+    color:var(--primary);
+
+}
+
+h3{
+
+    font-size:26px;
+
+    font-weight:600;
+
+    color:var(--primary);
+
+}
+
+p{
+
+    color:var(--gray);
+
+    margin-bottom:15px;
+
+}
+
+a{
+
+    text-decoration:none;
+
+}
+
+img{
+
+    max-width:100%;
+
+}
+
+
+
+/*==========================================================
+    4. Layout
+==========================================================*/
+
+.container{
+
+    width:min(1180px,90%);
+
+    margin:auto;
+
+}
+
+.section{
+
+    padding:110px 0;
+
+}
+
+.gray{
+
+    background:var(--light);
+
+}
+
+.section h2{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+}
+
+.section-intro{
+
+    text-align:center;
+
+    max-width:850px;
+
+    margin:auto;
+
+    margin-bottom:60px;
+
+}
+
+/*==========================================================
+    5. Header
+==========================================================*/
 
 header{
 
-    position:sticky;
+    position:fixed;
 
     top:0;
 
-    z-index:999;
+    left:0;
 
-    background:white;
+    width:100%;
+
+    background:#ffffff;
 
     border-bottom:1px solid var(--border);
+
+    z-index:1000;
+
+    transition:0.3s ease;
 
 }
 
@@ -89,23 +209,47 @@ header .container{
 
     align-items:center;
 
-    height:80px;
+    height:78px;
 
 }
 
-.logo h1{
+/*------------------------------
+    Logo
+------------------------------*/
+
+.logo a{
 
     color:var(--primary);
+
+    text-decoration:none;
+
+}
+
+.logo h2{
 
     font-size:28px;
 
     font-weight:700;
 
+    transition:.3s;
+
 }
+
+.logo h2:hover{
+
+    color:var(--secondary);
+
+}
+
+/*------------------------------
+    Navigation
+------------------------------*/
 
 nav ul{
 
     display:flex;
+
+    align-items:center;
 
     list-style:none;
 
@@ -119,13 +263,19 @@ nav li{
 
 nav a{
 
-    text-decoration:none;
+    color:var(--gray);
 
-    color:var(--primary);
+    font-size:16px;
 
-    transition:.3s;
+    font-weight:500;
+
+    transition:.25s;
+
+    position:relative;
 
 }
+
+/* Hover Color */
 
 nav a:hover{
 
@@ -133,113 +283,187 @@ nav a:hover{
 
 }
 
-/* ========================================== */
-/* Hero */
-/* ========================================== */
+/* Animated underline */
 
-#hero{
+nav a::after{
 
-    padding:140px 0;
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-8px;
+
+    width:0;
+
+    height:2px;
+
+    background:var(--secondary);
+
+    transition:.3s;
+
+}
+
+nav a:hover::after{
+
+    width:100%;
+
+}
+
+
+
+/*==========================================================
+    6. Hero
+==========================================================*/
+
+.hero{
+
+    padding-top:180px;
+
+    padding-bottom:140px;
 
     background:linear-gradient(
-
         180deg,
-
-        #ffffff,
-
-        #f8fafc
-
+        #ffffff 0%,
+        #f8fafc 100%
     );
 
     text-align:center;
 
 }
 
-#hero h2{
+.hero-content{
 
-    font-size:52px;
+    max-width:900px;
 
-    color:var(--primary);
+    margin:auto;
 
 }
 
-#hero h3{
+/*------------------------------
+    Research Scientist
+------------------------------*/
 
-    margin-top:15px;
+.hero h3{
 
     color:var(--secondary);
 
-    font-size:28px;
+    font-size:22px;
 
-    font-weight:400;
+    font-weight:600;
+
+    margin-bottom:25px;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
 
 }
 
-.hero-description{
+/*------------------------------
+    Main Title
+------------------------------*/
 
-    margin:40px auto;
+.hero h1{
 
-    max-width:850px;
+    font-size:64px;
+
+    font-weight:700;
+
+    line-height:1.15;
+
+    margin-bottom:20px;
+
+}
+
+/*------------------------------
+    Subtitle
+------------------------------*/
+
+.hero h2{
+
+    font-size:30px;
+
+    font-weight:400;
+
+    color:var(--gray);
+
+    margin-bottom:35px;
+
+}
+
+/*------------------------------
+    Description
+------------------------------*/
+
+.hero p{
+
+    max-width:900px;
+
+    margin:auto;
+
+    margin-bottom:45px;
 
     font-size:20px;
 
     color:var(--gray);
 
-}
-
-.keywords{
-
-    margin-top:40px;
+    line-height:1.9;
 
 }
 
-.keywords span{
-
-    display:inline-block;
-
-    margin:10px;
-
-    padding:
-
-    10px 22px;
-
-    border-radius:30px;
-
-    background:#E0F2FE;
-
-    color:#0369A1;
-
-}
+/*==========================================================
+    Hero Buttons
+==========================================================*/
 
 .hero-buttons{
 
-    margin-top:45px;
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:18px;
 
 }
+
+/*------------------------------
+    Common Button
+------------------------------*/
 
 .btn{
 
     display:inline-block;
 
-    margin:10px;
+    padding:14px 34px;
 
-    padding:
+    border-radius:50px;
 
-    15px 32px;
+    font-size:15px;
 
-    border-radius:40px;
-
-    background:var(--secondary);
-
-    color:white;
-
-    text-decoration:none;
+    font-weight:600;
 
     transition:.3s;
 
+    cursor:pointer;
+
 }
 
-.btn:hover{
+/*------------------------------
+    Primary Button
+------------------------------*/
+
+.btn-primary{
+
+    background:var(--secondary);
+
+    color:#ffffff;
+
+}
+
+.btn-primary:hover{
 
     background:#1D4ED8;
 
@@ -247,238 +471,709 @@ nav a:hover{
 
 }
 
-section{
+/*------------------------------
+    Secondary Button
+------------------------------*/
 
-    padding:
+.btn-secondary{
 
-    90px 0;
+    background:#ffffff;
+
+    color:var(--secondary);
+
+    border:1px solid var(--secondary);
 
 }
 
-section h2{
+.btn-secondary:hover{
 
-    font-size:38px;
+    background:var(--secondary);
 
-    margin-bottom:25px;
+    color:#ffffff;
+
+    transform:translateY(-3px);
+
+}
+
+/*==========================================================
+    7. Research Themes
+==========================================================*/
+
+/*------------------------------
+    Grid Layout
+------------------------------*/
+
+.card-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:30px;
+
+    margin-top:60px;
+
+}
+
+/*------------------------------
+    Theme Card
+------------------------------*/
+
+.card{
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    padding:35px;
+
+    transition:.3s ease;
+
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 12px 30px rgba(15,23,42,.08);
+
+}
+
+.card h3{
+
+    margin-bottom:18px;
 
     color:var(--primary);
 
+    font-size:24px;
+
 }
 
-.section-intro{
+.card p{
 
-    max-width:900px;
+    color:var(--gray);
+
+    line-height:1.8;
+
+}
+
+
+/*==========================================================
+    8. Research Programs
+==========================================================*/
+
+.program-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:35px;
+
+    margin-top:60px;
+
+}
+
+/*------------------------------
+    Program Card
+------------------------------*/
+
+.program-card{
+
+    background:#ffffff;
+
+    border:1px solid var(--border);
+
+    border-radius:20px;
+
+    padding:38px;
+
+    transition:.3s;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.program-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 18px 35px rgba(15,23,42,.10);
+
+}
+
+/* Blue top bar */
+
+.program-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:100%;
+
+    height:5px;
+
+    background:var(--secondary);
+
+}
+
+/* Program Name */
+
+.program-card h3{
+
+    font-size:28px;
+
+    color:var(--primary);
+
+    margin-bottom:12px;
+
+}
+
+/* Subtitle */
+
+.program-card h4{
+
+    font-size:18px;
+
+    color:var(--secondary);
+
+    font-weight:600;
+
+    margin-bottom:18px;
+
+}
+
+/* Description */
+
+.program-card p{
+
+    margin-bottom:25px;
+
+    line-height:1.9;
+
+}
+
+/* Bullet */
+
+.program-card ul{
+
+    margin-left:18px;
+
+}
+
+.program-card li{
+
+    margin-bottom:10px;
 
     color:var(--gray);
 
 }
 
-.theme-grid,
 
-.project-grid,
+/*==========================================================
+    9. Publication
+==========================================================*/
 
-.notes-grid,
+.publication-list{
 
-.question-grid{
+    max-width:900px;
 
-    display:grid;
-
-    grid-template-columns:
-
-    repeat(auto-fit,minmax(280px,1fr));
-
-    gap:30px;
-
-    margin-top:50px;
+    margin:60px auto 0;
 
 }
 
-.theme-card,
+.publication-item{
 
-.project-card,
+    display:flex;
 
-.note-card,
+    align-items:flex-start;
 
-.question-card,
+    gap:35px;
 
-.publication{
+    padding:28px 0;
 
-    background:white;
+    border-bottom:1px solid var(--border);
 
-    padding:35px;
+}
+
+/* Year */
+
+.year{
+
+    min-width:80px;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    color:var(--secondary);
+
+}
+
+/* Content */
+
+.publication-content{
+
+    flex:1;
+
+}
+
+.publication-content h3{
+
+    margin-bottom:10px;
+
+}
+
+.publication-content p{
+
+    margin-bottom:12px;
+
+}
+
+/* Status */
+
+.status{
+
+    display:inline-block;
+
+    padding:5px 14px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.preparing{
+
+    background:#DBEAFE;
+
+    color:#2563EB;
+
+}
+
+.accepted{
+
+    background:#DCFCE7;
+
+    color:#15803D;
+
+}
+
+.review{
+
+    background:#FEF3C7;
+
+    color:#B45309;
+
+}
+
+
+/*==========================================================
+    10. Card Animation
+==========================================================*/
+
+.card,
+.program-card,
+.publication-item{
+
+    transition:.3s ease;
+
+}
+
+.card:hover,
+.program-card:hover{
+
+    cursor:pointer;
+
+}
+
+/*==========================================================
+    11. News Timeline
+==========================================================*/
+
+.timeline{
+
+    max-width:900px;
+
+    margin:60px auto 0;
+
+    position:relative;
+
+}
+
+/* Left vertical line */
+
+.timeline::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:35px;
+
+    top:0;
+
+    bottom:0;
+
+    width:2px;
+
+    background:var(--border);
+
+}
+
+.timeline-item{
+
+    position:relative;
+
+    display:flex;
+
+    gap:30px;
+
+    margin-bottom:45px;
+
+    padding-left:80px;
+
+}
+
+/* Timeline Dot */
+
+.timeline-item::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:27px;
+
+    top:8px;
+
+    width:16px;
+
+    height:16px;
+
+    border-radius:50%;
+
+    background:var(--secondary);
+
+}
+
+/* Date */
+
+.timeline .date{
+
+    min-width:80px;
+
+    font-weight:700;
+
+    color:var(--secondary);
+
+}
+
+/*==========================================================
+    12. Contact
+==========================================================*/
+
+.contact-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:30px;
+
+    margin-top:60px;
+
+}
+
+.contact-card{
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
 
     border-radius:18px;
 
-    box-shadow:
+    padding:30px;
 
-    0 10px 30px
-
-    rgba(0,0,0,.06);
+    text-align:center;
 
     transition:.3s;
 
 }
 
-.theme-card:hover,
+.contact-card:hover{
 
-.project-card:hover,
+    transform:translateY(-6px);
 
-.note-card:hover,
-
-.question-card:hover,
-
-.publication:hover{
-
-    transform:translateY(-8px);
-
-    box-shadow:
-
-    0 15px 40px
-
-    rgba(0,0,0,.10);
+    box-shadow:0 12px 30px rgba(15,23,42,.08);
 
 }
 
-h3{
+.contact-card h3{
 
-    margin-bottom:18px;
-
-    color:var(--primary);
+    margin-bottom:15px;
 
 }
 
-.project-type{
+.contact-card a{
 
-    display:inline-block;
+    color:var(--secondary);
 
-    margin-bottom:18px;
-
-    padding:
-
-    6px 15px;
-
-    border-radius:20px;
-
-    background:#DBEAFE;
-
-    color:#1D4ED8;
-
-    font-size:14px;
+    text-decoration:none;
 
 }
 
-.framework-box{
+.contact-card a:hover{
 
-    margin-top:40px;
-
-    background:white;
-
-    border-radius:20px;
-
-    padding:50px;
-
-    box-shadow:
-
-    0 10px 25px
-
-    rgba(0,0,0,.05);
+    text-decoration:underline;
 
 }
 
-.framework-box pre{
 
-    font-size:18px;
-
-    line-height:2;
-
-    color:#334155;
-
-}
-
-.contact-box{
-
-    background:white;
-
-    padding:40px;
-
-    border-radius:20px;
-
-    box-shadow:
-
-    0 10px 25px
-
-    rgba(0,0,0,.05);
-
-}
+/*==========================================================
+    13. Footer
+==========================================================*/
 
 footer{
 
-    margin-top:80px;
+    background:var(--primary);
 
-    padding:
-
-    60px;
+    color:white;
 
     text-align:center;
 
-    background:#0F172A;
+    padding:70px 20px;
+
+    margin-top:80px;
+
+}
+
+footer h2{
 
     color:white;
+
+    margin-bottom:15px;
+
+}
+
+footer p{
+
+    color:#CBD5E1;
 
 }
 
 footer hr{
 
-    margin:
+    width:180px;
 
-    30px auto;
-
-    width:200px;
+    margin:30px auto;
 
     border:none;
 
-    border-top:
-
-    1px solid rgba(255,255,255,.2);
+    border-top:1px solid rgba(255,255,255,.2);
 
 }
 
-@media(max-width:768px){
 
-header .container{
+/*==========================================================
+    14. Simple Animation
+==========================================================*/
 
-    flex-direction:column;
+.card,
+.program-card,
+.contact-card{
 
-    height:auto;
-
-    padding:20px 0;
-
-}
-
-nav ul{
-
-    flex-wrap:wrap;
-
-    justify-content:center;
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
 
 }
 
-nav li{
+.hero{
 
-    margin:10px;
-
-}
-
-#hero h2{
-
-    font-size:36px;
+    animation:fadeUp .8s ease;
 
 }
 
-#hero h3{
+@keyframes fadeUp{
 
-    font-size:22px;
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
 
 }
+
+
+/*==========================================================
+    15. Responsive Design
+==========================================================*/
+
+@media (max-width:992px){
+
+    h1{
+
+        font-size:52px;
+
+    }
+
+    h2{
+
+        font-size:36px;
+
+    }
+
+}
+
+
+@media (max-width:768px){
+
+    header{
+
+        position:relative;
+
+    }
+
+    header .container{
+
+        flex-direction:column;
+
+        justify-content:center;
+
+        height:auto;
+
+        padding:20px 0;
+
+    }
+
+    nav ul{
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+        margin-top:20px;
+
+    }
+
+    nav li{
+
+        margin:10px 15px;
+
+    }
+
+    .hero{
+
+        padding-top:100px;
+
+        padding-bottom:90px;
+
+    }
+
+    .hero h1{
+
+        font-size:42px;
+
+    }
+
+    .hero h2{
+
+        font-size:24px;
+
+    }
+
+    .hero h3{
+
+        font-size:18px;
+
+    }
+
+    .hero p{
+
+        font-size:18px;
+
+    }
+
+    .hero-buttons{
+
+        flex-direction:column;
+
+        align-items:center;
+
+    }
+
+    .btn{
+
+        width:240px;
+
+        text-align:center;
+
+    }
+
+    .section{
+
+        padding:80px 0;
+
+    }
+
+    .publication-item{
+
+        flex-direction:column;
+
+        gap:10px;
+
+    }
+
+    .timeline-item{
+
+        padding-left:60px;
+
+    }
+
+}
+
+
+@media (max-width:480px){
+
+    h1{
+
+        font-size:34px;
+
+    }
+
+    h2{
+
+        font-size:30px;
+
+    }
+
+    .container{
+
+        width:92%;
+
+    }
 
 }
